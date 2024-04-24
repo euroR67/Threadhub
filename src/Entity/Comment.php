@@ -23,6 +23,10 @@ class Comment
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
 
+    #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Reply $reply = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +64,18 @@ class Comment
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): static
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getReply(): ?Reply
+    {
+        return $this->reply;
+    }
+
+    public function setReply(?Reply $reply): static
+    {
+        $this->reply = $reply;
 
         return $this;
     }

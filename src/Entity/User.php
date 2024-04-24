@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -40,6 +42,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $banned_until = null;
+
+    /**
+     * @var Collection<int, Thread>
+     */
+    #[ORM\OneToMany(targetEntity: Thread::class, mappedBy: 'user')]
+    private Collection $threads;
+
+    /**
+     * @var Collection<int, Reply>
+     */
+    #[ORM\OneToMany(targetEntity: Reply::class, mappedBy: 'user')]
+    private Collection $replys;
+
+    public function __construct()
+    {
+        $this->threads = new ArrayCollection();
+        $this->replys = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -136,6 +156,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setBannedUntil(?\DateTimeInterface $banned_until): static
     {
         $this->banned_until = $banned_until;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Thread>
+     */
+    public function getThreads(): Collection
+    {
+        return $this->threads;
+    }
+
+    public function addThread(Thread $thread): static
+    {
+        if (!$this->threads->contains($thread)) {
+            $this->threads->add($thread);
+            $thread->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeThread(Thread $thread): static
+    {
+        if ($this->threads->removeElement($thread)) {
+            // set the owning side to null (unless already changed)
+            if ($thread->getUser() === $this) {
+                $thread->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reply>
+     */
+    public function getReplys(): Collection
+    {
+        return $this->replys;
+    }
+
+    public function addReply(Reply $reply): static
+    {
+        if (!$this->replys->contains($reply)) {
+            $this->replys->add($reply);
+            $reply->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReply(Reply $reply): static
+    {
+        if ($this->replys->removeElement($reply)) {
+            // set the owning side to null (unless already changed)
+            if ($reply->getUser() === $this) {
+                $reply->setUser(null);
+            }
+        }
 
         return $this;
     }
