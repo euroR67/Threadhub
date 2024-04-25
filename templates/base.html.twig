@@ -12,6 +12,15 @@
         {% endblock %}
     </head>
     <body>
+        <header>
+            <nav>
+                <h1><a href="{{ path('app_home')}}">Threadhub.</a></h1>
+                <ul>
+                    <li><a href="">Accueil</a></li>
+                    <li><a href="">À propos</a></li>
+                </ul>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
     </body>
 </html>
