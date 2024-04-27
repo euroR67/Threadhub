@@ -2,11 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('styles/topnav.css') }}">
+            <link rel="stylesheet" href="{{ asset('styles/sidenav.css') }}">
         {% endblock %}
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Kanit:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
@@ -14,10 +20,16 @@
     <body>
         <header>
             <nav>
-                <h1><a href="{{ path('app_home')}}">Threadhub.</a></h1>
+                <h1><a href="{{ path('app_home')}}">ThreadHub.</a></h1>
+                {# Search input #}
+                {# <form action="" method="get">
+                    <input type="search" name="q" placeholder="Search">
+                    <button type="submit">Search</button>
+                </form> #}
                 <ul>
-                    <li><a href="">Accueil</a></li>
-                    <li><a href="">À propos</a></li>
+                    <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                    <li><a href="">Login</a></li>
+                    <li><a href="">Register</a></li>
                 </ul>
             </nav>
         </header>

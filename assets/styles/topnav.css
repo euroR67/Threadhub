@@ -1,0 +1,53 @@
+:root {
+    --primary-color: #17151b;
+    --secondary-color: #0f0e11;
+    --threadhub-border-color: #312e37;
+    --threadhub-button-color: #8060c7;
+    --threadhub-button-bg-color: #2B2830;
+    --threadhub-text-color: #C0BCCA;
+}
+
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 25px;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--threadhub-border-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+header nav ul li a{
+    border: 2px solid var(--threadhub-button-color);
+    border-radius: 25px;
+    padding: 12px 35px;
+}
+
+header nav ul li:first-child i {
+    font-size: 1.3rem;
+    padding: 12px;
+    background-color: var(--threadhub-button-bg-color);
+    border-radius: 50%;
+}
+
+header nav h1 a {
+    background-image: radial-gradient(circle, #a38dd4, #523f8c); /* Replace the colors with your desired ones */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Kanit", sans-serif;
+    font-size: 1.8rem;
+}

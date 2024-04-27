@@ -1,3 +1,12 @@
+:root {
+    --primary-color: #17151b;
+    --secondary-color: #0f0e11;
+    --threadhub-border-color: #312e37;
+    --threadhub-button-color: #8060c7;
+    --threadhub-button-bg-color: #2B2830;
+    --threadhub-text-color: #C0BCCA;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,36 +16,10 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
+a, p , h1, h2, h3, h4, h5, h6 , i, em , strong, span {
+    color: var(--threadhub-text-color);
+}
+
 body {
-    background-color: rgb(17, 23, 39);
-}
-
-header {
-    background-color: rgb(21, 32, 48);
-    color: white;
-    padding: 20px;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav ul {
-    display: flex;
-    gap: 15px;
-}
-
-header nav ul li a{
-    color: white;
-    font-size: 1.2rem;
-}
-
-header nav h1 a {
-    color: white;
-    font-size: 1.5rem;
+    background-color: var(--secondary-color);
 }
