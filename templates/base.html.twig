@@ -20,7 +20,6 @@
     <body>
         <header>
             <nav>
-                <h1><a href="{{ path('app_home')}}">ThreadHub.</a></h1>
                 {# Search input #}
                 {# <form action="" method="get">
                     <input type="search" name="q" placeholder="Search">
@@ -33,6 +32,40 @@
                 </ul>
             </nav>
         </header>
+        <aside>
+            <div class="logo">
+                <h1><a href="{{ path('app_home')}}">ThreadHub.</a></h1>
+            </div>
+            <nav>
+                <div class="category">
+                    <p>Category</p>
+                    <ul>
+                        <li>Gaming</li>
+                        <li>Sport</li>
+                        <li>Business</li>
+                        <li>Technology</li>
+                        <li>Entertainment</li>
+                        <li>Crypto</li>
+                    </ul>
+                    <p><a href="">See more</a></p>
+                </div>
+                <div class="support">
+                    <p>Resources</p>
+                    <ul>
+                        <li>About ThreadHub</li>   
+                        <li>Ads</li>
+                        <li>Support</li>
+                    </ul>
+                </div>
+                <div class="policy">
+                    <p>Policy</p>
+                    <ul>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Service</li>
+                        <li>Cookie Policy</li>
+                </div>
+            </nav>
+        </aside>
         {% block body %}{% endblock %}
     </body>
 </html>

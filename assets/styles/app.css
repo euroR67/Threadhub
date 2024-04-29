@@ -22,4 +22,7 @@ a, p , h1, h2, h3, h4, h5, h6 , i, em , strong, span {
 
 body {
     background-color: var(--secondary-color);
+    background-color: white;
+    display: flex;
+    flex-direction: row-reverse;
 }
