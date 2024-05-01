@@ -43,7 +43,7 @@ header nav ul li:first-child i {
     border-radius: 50%;
 }
 
-header nav h1 a {
+.logo h1 a {
     background-image: radial-gradient(circle, #a38dd4, #523f8c); /* Replace the colors with your desired ones */
     background-clip: text;
     -webkit-background-clip: text;
